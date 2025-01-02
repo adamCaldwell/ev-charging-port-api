@@ -1,3 +1,5 @@
+using EVChargingPort.API.Domain.Models;
+
 namespace EVChargingPort.API.Infrastructure.Entities;
 
 public class Application
