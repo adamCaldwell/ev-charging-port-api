@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using EVChargingPort.API.Application.Services;
 using EVChargingPort.API.Domain.Models;
-using AutoMapper;
+using System.Text.RegularExpressions;
 
 namespace EVChargingPort.API.API.Controllers;
 
 /// <summary>
-/// Controller for handling location requests.
+/// Controller for handling applications.
 /// </summary>
-[Route("v{version:apiVersion}/locations")]
+[Route("v{version:apiVersion}")]
 [ApiController]
 public class ApplicationsController : ControllerBase
 {
@@ -17,22 +17,29 @@ public class ApplicationsController : ControllerBase
     /// <summary>
     /// Default constructor.
     /// </summary>
-    /// <param name="locationService">Service for handling location requests.</param>
+    /// <param name="applicationService">Service for handling applications.</param>
     public ApplicationsController(IApplicationService applicationService)
     {
         _applicationService = applicationService;
     }
 
     /// <summary>
-    /// Retrieves location information in WGS84 format by postcode.
+    /// Submits a User Application.
     /// </summary>
-    /// <param name="application">Location's postcode.</param>
-    /// <returns>Returns a Location in Eastings/Northings format by postcode.</returns>
+    /// <param name="application">Application to submit.</param>
     [HttpPost("/submit")]
-    public async Task Submit(UserApplication application)
+    public async Task<ActionResult> Submit(UserApplication application)
     {
+        Regex vrnRegex = new(Patterns.vrnPattern);
+        Regex emailRegex = new(Patterns.emailPattern);
+        Regex postcodeRegex = new(Patterns.postcodePattern);
+
+        if (!vrnRegex.Match(application.VRN).Success) { return BadRequest("Invalid VRN entered."); }
+        if (!emailRegex.Match(application.Email).Success) { return BadRequest("Invalid email entered."); }
+        if (!postcodeRegex.Match(application.Address.Postcode).Success) { return BadRequest("Address has invalid postcode."); }
+
         await _applicationService.Submit(application);
 
-        return;
+        return Ok();
     }
 }
