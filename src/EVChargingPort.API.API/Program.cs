@@ -5,11 +5,12 @@ using EVChargingPort.API.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
- 
+
 // Add services to the container.
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
 builder.Services.AddScoped<IVrnService, VrnService>();
 builder.Services.AddScoped<IAddressService, AddressService>();
+builder.Services.AddScoped<AddressService>();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationContext>(dbContextOptions
     => dbContextOptions.UseSqlite("Data Source = Applications.db"));

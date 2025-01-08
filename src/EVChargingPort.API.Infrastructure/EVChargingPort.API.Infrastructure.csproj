@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Automapper.Extensions.Microsoft.DependencyInjection" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="microsoft.entityframeworkcore" />
+    <PackageReference Include="microsoft.entityframeworkcore.Sqlite" />
+    <PackageReference Include="microsoft.entityframeworkcore.Design" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EVChargingPort.API.Domain\EVChargingPort.API.Domain.csproj" />
+  </ItemGroup>
+</Project>
