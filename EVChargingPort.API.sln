@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVChargingPort.API.Domain",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVChargingPort.API.Infrastructure", "src\EVChargingPort.API.Infrastructure\EVChargingPort.API.Infrastructure.csproj", "{293D9DDE-FE94-4DF4-894F-900FE6BA37A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVChargingPort.API.Tests", "EVChargingPort.API.Tests\EVChargingPort.API.Tests.csproj", "{B1D65A90-422A-47FE-A5B4-57B0033954B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{293D9DDE-FE94-4DF4-894F-900FE6BA37A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{293D9DDE-FE94-4DF4-894F-900FE6BA37A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{293D9DDE-FE94-4DF4-894F-900FE6BA37A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D65A90-422A-47FE-A5B4-57B0033954B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D65A90-422A-47FE-A5B4-57B0033954B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D65A90-422A-47FE-A5B4-57B0033954B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D65A90-422A-47FE-A5B4-57B0033954B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
