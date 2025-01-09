@@ -33,7 +33,7 @@ public class VrnController : ControllerBase
     {
         Regex vrnRegex = new(Patterns.vrnPattern);
 
-        if (!vrnRegex.Match(vrn).Success) { return BadRequest("Invalid VRN entered."); }
+        if (!vrnRegex.Match(vrn).Success) { return BadRequest(new { message = "Invalid VRN entered." }); }
 
         return _vrnService.CheckEligibility(vrn);
     }

@@ -34,9 +34,9 @@ public class ApplicationsController : ControllerBase
         Regex emailRegex = new(Patterns.emailPattern);
         Regex postcodeRegex = new(Patterns.postcodePattern);
 
-        if (!vrnRegex.Match(application.VRN).Success) { return BadRequest("Invalid VRN entered."); }
-        if (!emailRegex.Match(application.Email).Success) { return BadRequest("Invalid email entered."); }
-        if (!postcodeRegex.Match(application.Address.Postcode).Success) { return BadRequest("Address has invalid postcode."); }
+        if (!vrnRegex.Match(application.VRN).Success) { return BadRequest(new { message = "Invalid VRN entered." }); }
+        if (!emailRegex.Match(application.Email).Success) { return BadRequest(new { message = "Invalid email entered." }); }
+        if (!postcodeRegex.Match(application.Address.Postcode).Success) { return BadRequest(new { message = "Address has invalid postcode." }); }
 
         await _applicationService.Submit(application);
 

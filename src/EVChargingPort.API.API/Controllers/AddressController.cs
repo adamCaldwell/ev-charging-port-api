@@ -35,7 +35,7 @@ public class AddressController : ControllerBase
 
         if (!postcodeRegex.Match(postcode).Success)
         {
-            return BadRequest("Invalid postcode entered.");
+            return BadRequest(new { message = "Invalid postcode entered." });
         }
 
         return _addressService.PostcodeLookup(postcode);
@@ -51,7 +51,7 @@ public class AddressController : ControllerBase
     {
         Regex postcodeRegex = new(Patterns.postcodePattern);
 
-        if (!postcodeRegex.Match(address.Postcode).Success) { return BadRequest("Address has invalid postcode."); }
+        if (!postcodeRegex.Match(address.Postcode).Success) { return BadRequest(new { message = "Address has invalid postcode." }); }
 
         return _addressService.CheckEligibility(address);
     }
