@@ -1,5 +1,4 @@
 using EVChargingPort.API.Domain.Models;
-using EVChargingPort.API.Infrastructure.Repositories;
 
 namespace EVChargingPort.API.Application.Services;
 
@@ -30,7 +29,7 @@ public class AddressService : IAddressService
     /// <inheritdoc />
     public Eligibility CheckEligibility(Address address)
     {
-        List<string> eligibleCountries = new List<string> {"England", "Scotland", "Wales", "Northern Island"};
+        List<string> eligibleCountries = new List<string> {"England", "Scotland", "Wales", "Northern Ireland"};
         return new Eligibility()
             {
                 Eligible = eligibleCountries.Contains(address.Country)

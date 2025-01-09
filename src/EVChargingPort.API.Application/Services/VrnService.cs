@@ -1,5 +1,4 @@
 using EVChargingPort.API.Domain.Models;
-using EVChargingPort.API.Infrastructure.Repositories;
 
 namespace EVChargingPort.API.Application.Services;
 
